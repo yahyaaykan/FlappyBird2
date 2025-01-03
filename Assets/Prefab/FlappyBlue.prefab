@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5958358746074509844}
   - component: {fileID: 1022182138460978504}
   - component: {fileID: 7704190377644333903}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FlappyBlue
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
