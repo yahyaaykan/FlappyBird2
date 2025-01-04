@@ -6,11 +6,14 @@ using UnityEngine.SocialPlatforms.Impl;
 public class DataController : MonoBehaviour
 {
     public static DataController ornek;
-    private const string High_Score = "High Score";
+    private string High_Score = "High Score";
     // Start is called before the first frame update
     void Start()
     {
+
         TekilNesne();
+        Oyunilkdefabasladi();
+        setHighScore(0);
     }
     void TekilNesne()
     {
@@ -35,7 +38,6 @@ public class DataController : MonoBehaviour
     {
         PlayerPrefs.SetInt(High_Score, 0);
         PlayerPrefs.SetInt("Oyunilkdefabasladi", 0);
-
     }
     public void setHighScore(int score)
     {

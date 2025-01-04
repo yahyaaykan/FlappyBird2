@@ -8,7 +8,7 @@ public class Tesisatci : MonoBehaviour
     
     public float Min, Max;
     
-    private float distance = 2.5f;
+    private float distance = 4.5f;
     
     private float LastPipeX;
     // Start is called before the first frame update

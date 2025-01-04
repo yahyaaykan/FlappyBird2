@@ -17,6 +17,7 @@ public class BirdScript : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip flapclip,dieclip,pointclip;
+    public int score;
     void Awake()
     {
         if (instance == null)
@@ -60,6 +61,16 @@ public class BirdScript : MonoBehaviour
 
 
         }
+        if (transform.position.y >= 4.5)
+        {
+            if (isAlive)
+            {
+                isAlive = false;
+                Anim.SetTrigger("Bluedied");
+                GamePlayController.ornek.SkoruGoster(score);
+                audioSource.PlayOneShot(dieclip);
+            }
+        }
     }
     public float GetPositionX()
     {
@@ -71,6 +82,11 @@ public class BirdScript : MonoBehaviour
     }
     public void Uc()
     {
+        if (GamePlayController.ornek.pauseActive==true)
+        {
+            GamePlayController.ornek.pauseActive = false;
+            Time.timeScale = 1;
+        }
         didFlap=true;
     }
     void OnCollisionEnter2D(Collision2D hedef)
@@ -81,6 +97,7 @@ public class BirdScript : MonoBehaviour
             {
                 isAlive = false;
                 Anim.SetTrigger("Bluedied");
+                GamePlayController.ornek.SkoruGoster(score);
                 audioSource.PlayOneShot(dieclip);
             }
         }
@@ -89,6 +106,8 @@ public class BirdScript : MonoBehaviour
     {
         if (hedef.gameObject.tag == "PipeHolder" )
         {
+            score++;
+            GamePlayController.ornek.SetScore(score);
             audioSource.PlayOneShot(pointclip);
         }
     }
